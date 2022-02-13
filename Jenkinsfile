@@ -8,11 +8,12 @@ pipeline{
 
 	stages {
 
-		stage('Build') {
-
-			steps {
-				sh 'docker build -t $imageName .'
+		stage('Building image') {
+		      steps{
+			script {
+			  dockerImage = docker.build imageName
 			}
-		}
+		      }
+		    }
 	}
 }

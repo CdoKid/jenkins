@@ -1,10 +1,18 @@
 pipeline {
-    agent { dockerfile true }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'mvn --version'
-            }
-        }
-    }
+    agent {
+    label 'docker' 
+  }
+    environment {
+        imageName="sample:latest"
+	}
+
+	stages {
+
+		stage('Build') {
+
+			steps {
+				sh 'docker build -t $imageName .'
+			}
+		}
+	}
 }

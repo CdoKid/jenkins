@@ -1,6 +1,6 @@
 pipeline {
     agent {
-	label "Docker"
+	label "docker"
 	}
     environment {
         imageName="sample:latest"

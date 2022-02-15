@@ -3,7 +3,7 @@ pipeline {
     environment {
         imageName="sample:latest"
 	}
-
+	stages {
 	stage('Building image') {
 		steps{
 		script {
@@ -11,4 +11,5 @@ pipeline {
 		}
 	}
 	}
+}
 }

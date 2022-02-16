@@ -1,15 +1,18 @@
-pipeline {
-    agent any
-    environment {
+
+pipeline{
+	agent any
+
+	environment {
         imageName="sample:latest"
 	}
+
 	stages {
-	stage('Building image') {
-		steps{
-		script {
-		dockerImage = docker.build imagename
+
+		stage('Build') {
+
+			steps {
+				sh 'docker build -t $imageName .'
+			}
 		}
 	}
-	}
-}
 }
